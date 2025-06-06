@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import '../draggable/square.js'
+import '../javascript/subMenu.js'
+import '../javascript/menuHover.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
