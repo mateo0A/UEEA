@@ -5,6 +5,8 @@ import App from './App.jsx'
 import '../draggable/square.js'
 import '../javascript/subMenu.js'
 import '../javascript/menuHover.js'
+import '../animations/menuPlace.js'
+import '../animations/contentMain.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
