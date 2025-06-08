@@ -5,13 +5,22 @@
   --menu-bck:#FFF;
   --color-links:#000;
   --link-bck:#e72121;
-  --link-select:#e72121ea;
+  --link-select:#e72121af;
   --shadow-links:#1f030356;
   --links-subM:#c0c0c0;
   --color-basis:#1c1c1c;
   --color-Hover:#FFF;
 
 }
+/*LINK INSTANCE*/
+.linkState{
+  background: var(--link-select);
+
+}
+.linkState *{
+  color: #FFF;
+}
+/*---------------------------*/
 a{
   text-decoration: none;
 }
@@ -22,6 +31,7 @@ a{
   font-family: "Poppins";
   list-style: none;
   color: var(--color-basis);
+  scroll-behavior: smooth;
 }
 
 body{
@@ -30,6 +40,7 @@ body{
   min-height: 100vh;
   background: var(--body-bck);
   transition: .4s ease;
+  overflow-x: hidden;
 }
 
 body.menuHover{
@@ -69,6 +80,7 @@ body.menuHover{
 .header .logoImg{
   object-fit: contain;
   z-index: 100;
+  width: 70px;
 }
 /*links*/
 .nav-list{
@@ -191,6 +203,7 @@ body.menuHover{
   user-select: none;
   transition: .4s ease;
   left: -100px;
+  z-index: 100;
 }
 .nav-cont.open{
   width: 260px;
@@ -207,70 +220,184 @@ body.menuHover{
 /*Contenido del index*/
 .main{
   grid-column: 2/3;
-  background: #eeebeb00;
+  background: #e9e9e9;
   min-height: 100dvh;
-  padding: 10px;
-  top: 10px;
+
   opacity: 0;
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  
+  padding: 2PX;
   grid-template-areas:
-  "title title"
+  "header header"
   "descript imagen"
+  "sbT sbT"
+  "content content"
+  "foot foot"
   ;
-  grid-template-rows: 90px repeat(2,auto);
-  gap: 5px;
+  grid-template-rows: 90px 88vh 80px auto 100px;
+
+  gap: 1rem;
 }
-.descriptionHome{
-  grid-area: title;
+.containsMain{
+  position: relative;
+  overflow: hidden;
+}
+.objectsAbs{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/*Titulo*/
+.titleMain{
+  grid-area: header;
+}
+.tittleText{
+  position: absolute;
+  background: #FFF;
+  height: 90%;
+  width: 80%;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*------------------------------*/
+/*Descripcion*/
+.descriptionWebApp{
+  grid-area: descript;
+}
+.descApp{
   background: #FFF;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 30px;
+  padding: 6px;
+  z-index: 1;
+  left: -80%;
 }
-.decriptionWeb{
-  grid-area: descript;
-  background: yellow;
-  padding: 10px;
-  height: 300px;
-}
-.decriptionWeb p{
-  background: red;
-  position: absolute;
-  width: 90%;
-  left: 50%;
-  top: 50%;
-  transform:  translate(-50% ,-50%) ;
-}
-.imageWeb{
+/*--------------------*/
+/*Imagen*/
+.imagenWeb {
   grid-area: imagen;
-  border-radius: 10px;
-  overflow: hidden;
 }
-.imageWeb img{
+.imgwP{
   position: absolute;
-  width: 100%;
-  aspect-ratio: 1/1;
+  width: 95%;
   object-fit: contain;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  
+  border-radius: 5px;
+  background: #FFF;
+  padding: 14px;
+  border-radius: 10px;
+  left: 150%;
 }
-.contMain{
+.objectOpacity{
+  opacity: 0;
+}
+/*Explicacion*/
+.subtittle{
+  grid-area: sbT;
+  background-color: #DDD;
+  border-radius: 10px;
+}
+.sbTh2{
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  position: absolute;
+  transform: translate(10px,-50%);
+  display: flex;
+  align-items: center;
+}
+.contentWepp{
+  grid-area: content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+  minmax(300px, 1fr));
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 10px;
+}
+.contentWepp aside{
+  width: 300px;
+  background:#f81b1b;
+  margin: auto;
+  height: 350px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 10px #000;
+  transition: .4s ease-in-out;
+}
+.contentWepp aside:hover {
+  box-shadow: 0 0px 10px #000;
 
 }
-.descriptionHome h1{
-  background: red;
+.contentWepp aside P{
+  font-size: 25px;
+  font-weight: 500;
+  color: #FFF;
+  
+}
+.descSub{
   position: absolute;
-  left: 50%;
   top: 50%;
-  height: 100%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+  transition: 0.7s ease ;
+  color: #FFF;
+  opacity: 0;
   width: 90%;
+  height: 80%;
+}
+.contentWepp aside::after{
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #000000;
+  border-radius: 10px 100% 30px 0 ;
+  bottom: -10px;
+  left: -10px;
+  transition: all .5s ease;
+}
+.contentWepp aside::before{
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: hsl(32, 46%, 11%);
+  border-radius: 0 15px 50px 100%;
+  top: -10px;
+  right:  -10px;
+  transition: all .5s ease;
+
+}
+.contentWepp aside:hover::before,
+.contentWepp aside:hover::after{
+  width: 130%;
+  height: 130%;
+}
+.contentWepp aside:hover .descSub {
+  opacity: 1;
+}
+
+/*-----------------------------------------------------------*/
+/* Footer Styles */
+.footer{
+  grid-area: foot;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translate(-50%,-50%);
+  font-size: 19px;
 }

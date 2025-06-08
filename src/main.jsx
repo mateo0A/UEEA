@@ -7,6 +7,8 @@ import '../javascript/subMenu.js'
 import '../javascript/menuHover.js'
 import '../animations/menuPlace.js'
 import '../animations/contentMain.js'
+import '../styles/actividades.css'
+import '../animations/cardsActivities.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
